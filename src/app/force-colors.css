@@ -82,3 +82,56 @@ section {
 body {
   color: #FFFFFF !important;
 }
+
+/* PREVENIR SALTOS DE FOOTER Y FONDOS AZULES EN LOGOUT */
+footer,
+[role="contentinfo"],
+.footer,
+.footer-gametime {
+  background-color: #000000 !important;
+  background-image: none !important;
+  position: relative !important;
+  z-index: 10 !important;
+  transition: none !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+/* PREVENIR FONDOS AZULES Y DEGRADADOS */
+body::before,
+body::after,
+html::before,
+html::after,
+*::before,
+*::after {
+  background: transparent !important;
+  background-image: none !important;
+  background-color: transparent !important;
+}
+
+/* OVERLAY ANTI-FLASH FORZADO */
+#anti-flash-overlay {
+  background: #0E0E0F !important;
+  background-image: none !important;
+}
+
+/* PREVENIR TRANSICIONES DURANTE CAMBIOS DE ESTADO */
+.logout-transition,
+[data-logout="true"],
+[data-auth-state="changing"] {
+  transition: none !important;
+  animation: none !important;
+  transform: none !important;
+}
+
+/* FORZAR ESTABILIDAD DEL LAYOUT */
+body.auth-changing,
+html.auth-changing {
+  position: relative !important;
+  overflow-x: hidden !important;
+}
+
+body.auth-changing * {
+  transition: none !important;
+  animation: none !important;
+}

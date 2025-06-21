@@ -13,7 +13,7 @@ export const AntiFlashOverlay = () => {
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%);
+      background: #0E0E0F;
       z-index: -999;
       pointer-events: none;
     `

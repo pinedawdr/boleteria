@@ -7,6 +7,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { ClientOptimizations } from "@/components/ClientOptimizations";
 import { AntiFlashOverlay } from "@/components/AntiFlashOverlay";
+import { LogoutStabilizer } from "@/components/LogoutStabilizer";
 import PerformanceMonitor from "@/components/dev/PerformanceMonitor";
 import HydrationMonitor from "@/components/dev/HydrationMonitor";
 import HydrationFix, { ThemeHydrationFix, HydrationErrorBoundary } from "@/components/HydrationFix";
@@ -94,14 +95,15 @@ export default function RootLayout({
         `}} />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen text-white flex flex-col`}
-        style={{ backgroundColor: '#0E0E0F' }}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen text-white flex flex-col bg-body-bg`}
+        style={{ backgroundColor: '#0E0E0F', transition: 'none' }}
       >
         <ClientOptimizations>
           <HydrationErrorBoundary>
             <HydrationFix />
             <ThemeHydrationFix />
             <AntiFlashOverlay />
+            <LogoutStabilizer />
             <Navigation />
             <main className="pt-12 sm:pt-14 md:pt-16 lg:pt-18 bg-transparent flex-1">
               {children}
