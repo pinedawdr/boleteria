@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* COLORES FORZADOS - GAMETIME STYLE */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #0E0E0F !important;
+  color: #FFFFFF !important;
+}
+
+body {
+  background: #0E0E0F !important;
+  color: #FFFFFF !important;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+@layer components {
+  /* Botones estilo Gametime.co */
+  .btn-gametime {
+    @apply px-6 py-3 rounded-lg font-bold transition-all duration-300 ease-out;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #FF0042;
+    color: #FFFFFF;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 12px 24px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1;
+    vertical-align: middle;
+  }
+
+  .btn-primary:hover {
+    background: #9A0028;
+    color: #ffffff;
+    transform: scale(1.02);
+  }
+
+  .btn-primary:active {
+    transform: scale(0.98);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #1A1A1B;
+    border: 1px solid #333333;
+    color: #FFFFFF;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 12px 24px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1;
+    vertical-align: middle;
+  }
+
+  .btn-secondary:hover {
+    background-color: #2A2A2B;
+    border-color: #555555;
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: transparent;
+    border: 1px solid #FF0042;
+    color: #FF0042;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 12px 24px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1;
+    vertical-align: middle;
+  }
+
+  .btn-outline:hover {
+    background-color: #FF0042;
+    color: #FFFFFF;
+  }
+
+  /* Variante compacta para botones con pocos elementos */
+  .btn-compact {
+    @apply inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg font-medium transition-all duration-300;
+  }
+
+  /* Forzar alineación correcta de iconos en botones */
+  .btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    flex-shrink: 0;
+  }
+
+  /* Asegurar que todos los iconos SVG en botones estén alineados */
+  .btn-primary svg,
+  .btn-secondary svg,
+  .btn-outline svg {
+    display: inline-block;
+    vertical-align: middle;
+    flex-shrink: 0;
+  }
+
+  /* Cards estilo Gametime.co */
+  .card-gametime {
+    @apply bg-card-bg border border-border-color rounded-xl p-6 transition-all duration-300 hover:bg-hover-bg hover:border-border-light;
+  }
+
+  .card-hover {
+    @apply transform transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover;
+  }
+
+  .card-glow {
+    @apply transition-all duration-300 hover:shadow-glow;
+  }
+
+  /* Inputs estilo Gametime.co */
+  .input-gametime {
+    @apply bg-input-bg border border-border-color rounded-lg px-4 py-3 text-text-primary placeholder-text-secondary transition-all duration-300 focus:ring-2 focus:ring-accent focus:border-accent outline-none;
+  }
+
+  /* Hover effects modernos */
+  .hover-lift {
+    @apply transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-card-hover;
+  }
+
+  .hover-scale {
+    @apply transition-transform duration-300 ease-out hover:scale-[1.02];
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300 ease-out hover:shadow-glow;
+  }
+
+  .hover-accent {
+    @apply transition-colors duration-300 hover:text-accent;
+  }
+
+  /* Glass effect minimalista */
+  .glass-subtle {
+    @apply bg-card-bg/80 backdrop-blur-sm border border-border-color;
+  }
+
+  /* Navegación */
+  .nav-gametime {
+    @apply bg-primary/95 backdrop-blur-sm border-b border-border-color;
+  }
+
+  /* Skeleton loading */
+  .skeleton {
+    @apply bg-secondary animate-pulse rounded;
+  }
+
+  /* Responsive utilities */
+  .responsive-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+  }
+
+  .responsive-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  .responsive-text {
+    @apply text-sm sm:text-base lg:text-lg;
+  }
+}
+
+@layer utilities {
+  /* Layout backgrounds específicos - FORZADOS */
+  .bg-header-layout {
+    background-color: #000000 !important;
+  }
+
+  .bg-footer-layout {
+    background-color: #000000 !important;
+  }
+
+  .bg-body-layout {
+    background-color: #0E0E0F !important;
+  }
+
+  /* Clases de fondo específicas para componentes */
+  .header-black {
+    background-color: #000000 !important;
+  }
+  
+  .footer-black {
+    background-color: #000000 !important;
+  }
+  
+  .body-gray {
+    background-color: #0E0E0F !important;
+  }
+
+  /* Text effects */
+  .text-accent-glow {
+    @apply text-accent;
+    text-shadow: 0 0 10px rgba(21, 245, 186, 0.3);
+  }
+
+  .text-shadow-sm {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Focus ring personalizado */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary;
+  }
+
+  /* Gradient text para acentos */
+  .gradient-text {
+    @apply bg-gradient-to-r from-accent to-accent-light bg-clip-text text-transparent;
+  }
+
+  /* Scroll optimizations */
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+  
+  .scroll-optimized {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    overscroll-behavior: contain;
+  }
+
+  /* Performance optimizations */
+  .cards-grid {
+    contain: layout style;
+    will-change: contents;
+  }
+  
+  .cards-grid > * {
+    contain: layout style paint;
+    will-change: transform;
+  }
+
+  /* Hardware acceleration helpers */
+  .gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Lazy loading optimization */
+  .lazy-load-container {
+    contain: strict;
+    content-visibility: auto;
+    contain-intrinsic-size: 300px;
+  }
+}

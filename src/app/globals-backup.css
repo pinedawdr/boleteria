@@ -1,0 +1,551 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border-color;
+  }
+  
+  body {
+    @apply bg-primary text-text-primary font-sans antialiased;
+    /* Gametime.co style: fondo sólido muy oscuro */
+    background-color: #111111;
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  /* Prevenir flash blanco durante carga */
+  html, body {
+    background-color: #111111 !important;
+  }
+
+  html {
+    background-color: #111111 !important;
+    scroll-behavior: smooth;
+  }
+
+  /* Asegurar transiciones suaves */
+  * {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+}
+
+@layer components {
+  .page-container {
+    @apply container mx-auto px-6;
+  }
+
+  .bg-gradient-primary {
+    @apply bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500;
+  }
+
+  .bg-gradient-secondary {
+    @apply bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600;
+  }
+
+@layer components {
+  /* Botones estilo Gametime.co */
+  .btn-gametime {
+    @apply px-6 py-3 rounded-lg font-bold transition-all duration-300 ease-out;
+  }
+
+  .btn-primary {
+    @apply bg-accent text-black font-bold rounded-lg px-6 py-3 transition-all duration-300 hover:brightness-110 hover:scale-[1.02] active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply bg-secondary border border-border-color text-text-primary rounded-lg px-6 py-3 transition-all duration-300 hover:bg-hover-bg hover:border-border-light;
+  }
+
+  .btn-outline {
+    @apply bg-transparent border border-accent text-accent rounded-lg px-6 py-3 transition-all duration-300 hover:bg-accent hover:text-black;
+  }
+
+  /* Cards estilo Gametime.co */
+  .card-gametime {
+    @apply bg-card-bg border border-border-color rounded-xl p-6 transition-all duration-300 hover:bg-hover-bg hover:border-border-light;
+  }
+
+  .card-hover {
+    @apply transform transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover;
+  }
+
+  .card-glow {
+    @apply transition-all duration-300 hover:shadow-glow;
+  }
+
+  /* Inputs estilo Gametime.co */
+  .input-gametime {
+    @apply bg-input-bg border border-border-color rounded-lg px-4 py-3 text-text-primary placeholder-text-secondary transition-all duration-300 focus:ring-2 focus:ring-accent focus:border-accent outline-none;
+  }
+
+  /* Text styles */
+  .text-accent-glow {
+    @apply text-accent;
+    text-shadow: 0 0 10px rgba(21, 245, 186, 0.3);
+  }
+
+  /* Hover effects modernos */
+  .hover-lift {
+    @apply transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-card-hover;
+  }
+
+  .hover-scale {
+    @apply transition-transform duration-300 ease-out hover:scale-[1.02];
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300 ease-out hover:shadow-glow;
+  }
+
+  .hover-accent {
+    @apply transition-colors duration-300 hover:text-accent;
+  }
+
+  /* Glass effect minimalista */
+  .glass-subtle {
+    @apply bg-card-bg/80 backdrop-blur-sm border border-border-color;
+  }
+}
+
+  .input-modern {
+    @apply bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400;
+    @apply focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-200;
+  }
+
+  .skeleton {
+    @apply bg-white/5 animate-pulse rounded;
+  }
+
+  .responsive-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+  }
+
+  .responsive-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  .responsive-text {
+    @apply text-sm sm:text-base lg:text-lg;
+  }
+}
+
+@layer utilities {
+  .text-shadow-sm {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-900;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent;
+  }
+  
+  /* Fix para el fondo blanco difuminado en scroll */
+  .no-blur-background {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+  
+  /* Optimizaciones específicas para scroll performance */
+  
+  /* Scroll optimizations */
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+  
+  .scroll-optimized {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    overscroll-behavior: contain;
+  }
+  
+  /* Performance boost para cards grid */
+  .cards-grid {
+    contain: layout style;
+    will-change: contents;
+  }
+  
+  .cards-grid > * {
+    contain: layout style paint;
+    will-change: transform;
+  }
+  
+  /* Optimizaciones para lazy loading */
+  .lazy-load-container {
+    contain: strict;
+    content-visibility: auto;
+    contain-intrinsic-size: 300px;
+  }
+  
+  /* Micro-optimizaciones de CSS */
+  .card-modern {
+    /* ...existing styles... */
+    transform: translateZ(0); /* Force hardware acceleration */
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Navigation performance boost */
+  .nav-optimized {
+    contain: layout style;
+    will-change: background-color, backdrop-filter;
+    transform: translateZ(0);
+  }
+  
+  /* Prevent layout shifts */
+  .prevent-layout-shift {
+    contain: size layout style paint;
+  }
+}
+
+/* Basic animations - keeping essential ones */
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px) scale(0.95); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0) scale(1); 
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 400ms ease-out forwards;
+}
+
+.animate-slide-in-up {
+  animation: slideInUp 500ms ease-out forwards;
+}
+
+.animate-pulse-gentle {
+  animation: pulse 2.5s infinite ease-in-out;
+}
+
+@keyframes fadeInOptimized {
+  from { 
+    opacity: 0; 
+    transform: translate3d(0, 10px, 0); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translate3d(0, 0, 0); 
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeInOptimized 200ms ease-out forwards;
+}
+
+/* Fix específico para el problema de fondo blanco difuminado en scroll */
+/* Eliminamos backdrop-blur de elementos específicos que causan el problema */
+.backdrop-blur-sm,
+.backdrop-blur-md,
+.backdrop-blur-lg,
+.backdrop-blur-xl {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Fix para navegación sin backdrop-blur */
+nav.fixed {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Fix para overlays problemáticos */
+.fixed.inset-0 {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Mejorar fondos sin blur */
+.bg-gray-900\/95 {
+  background-color: rgba(17, 24, 39, 0.98) !important;
+}
+
+.bg-black\/95 {
+  background-color: rgba(0, 0, 0, 0.98) !important;
+}
+
+.bg-black\/90 {
+  background-color: rgba(0, 0, 0, 0.95) !important;
+}
+
+/* SOLUCIÓN PARA FLASHES BLANCOS */
+/* Prevenir cualquier flash blanco durante scroll */
+* {
+  background-color: inherit;
+}
+
+/* Asegurar que no haya elementos con fondo blanco durante transiciones */
+html, body, #__next, [data-nextjs-scroll-focus-boundary] {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%) !important;
+}
+
+/* Prevenir flashes en navegación */
+nav, header, .navbar {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%) !important;
+}
+
+/* Optimizar rendimiento del scroll para evitar repaints */
+nav {
+  will-change: auto !important;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Prevenir cambios de layout que puedan causar flashes */
+.fixed {
+  contain: layout style paint;
+}
+
+/* SOLUCIÓN DEFINITIVA PARA FLASHES BLANCOS AL HACER SCROLL */
+/* Asegurar que todos los elementos mantengan el fondo correcto durante scroll */
+body, html {
+  background: #1a1a2e !important;
+  overflow-x: hidden;
+}
+
+/* Prevenir flashes en elementos que se superponen durante scroll */
+.fixed, .sticky, .absolute {
+  background-color: inherit;
+}
+
+/* Optimizar GPU y evitar repaints */
+nav, header, footer, .navbar {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Eliminar cualquier transición que pueda causar flashes */
+.transition-all {
+  transition-property: opacity, transform, scale !important;
+  transition-duration: 0.2s !important;
+}
+
+/* Eliminar transiciones de background que causen flashes */
+* {
+  transition-property: opacity, transform, scale, color, border-color !important;
+}
+
+/* Específicamente eliminar transiciones de background */
+nav, footer, header, .fixed, .sticky, .absolute {
+  transition-property: opacity, transform, scale !important;
+}
+
+/* Fix específico para el navbar */
+nav.fixed {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Fix específico para el footer */
+footer {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Asegurar que header y footer tengan el mismo fondo que body */
+nav, footer {
+  background-attachment: local !important;
+  position: relative;
+}
+
+/* Eliminar cualquier sombra o efecto que pueda causar contraste */
+nav::before, footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Prevenir FOUC (Flash of Unstyled Content) */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Asegurar rendimiento óptimo en scroll */
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Clase para gradiente consistente */
+.bg-gradient-consistent {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%) !important;
+}
+
+/* Aplicar gradiente consistente a elementos clave */
+html, body, nav, footer, header {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%) !important;
+}
+
+/* Prevenir cualquier elemento blanco durante scroll o transiciones */
+*:not(img):not(svg):not(path):not(circle):not(line):not(rect):not(polygon) {
+  background-color: transparent;
+}
+
+/* Asegurar que el main tenga fondo transparente para mostrar el gradiente del body */
+main {
+  background: transparent !important;
+}
+
+/* SOLUCIÓN RADICAL PARA FLASHES BLANCOS */
+/* Aplicar el gradiente a TODOS los elementos que puedan causar flash */
+html::before, body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%);
+  z-index: -1000;
+  pointer-events: none;
+}
+
+/* Asegurar que elementos fixed no creen contraste */
+.fixed {
+  z-index: 50 !important;
+}
+
+nav.fixed {
+  z-index: 60 !important;
+}
+
+/* Prevenir cualquier flash de elementos posicionados */
+.absolute, .relative, .sticky {
+  background: transparent !important;
+}
+
+/* Específico para containers que puedan tener background */
+.container, .page-container, [class*="container"] {
+  background: transparent !important;
+}
+
+/* SOLUCIÓN ULTRA AGRESIVA PARA FLASHES BLANCOS */
+/* Prevenir cualquier elemento blanco durante rendering */
+[class*="bg-white"] {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  background-blend-mode: overlay;
+}
+
+/* Asegurar que elementos con bg-white/X mantengan la transparencia correcta */
+.bg-white\/5 {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.bg-white\/10 {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.bg-white\/20 {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Prevenir elementos blancos sólidos durante transiciones */
+.bg-white {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* Asegurar que hover states no causen flashes */
+*:hover {
+  transition-property: opacity, transform, scale, border-color !important;
+  transition-duration: 0.2s !important;
+}
+
+/* SOLUCIÓN DEFINITIVA: Prevenir cualquier fondo que no sea del gradiente principal */
+/* Aplicar a todos los elementos que puedan renderizar fondo blanco */
+div:not([class*="bg-gradient"]):not([class*="bg-black"]):not([class*="bg-gray"]):not([class*="bg-blue"]):not([class*="bg-purple"]):not([class*="bg-red"]):not([class*="bg-green"]):not([class*="bg-yellow"]) {
+  background-color: transparent !important;
+}
+
+/* Forzar que cualquier elemento posicionado use el gradiente o sea transparente */
+.absolute, .fixed, .relative, .sticky {
+  background: transparent !important;
+}
+
+.absolute.bg-black, .fixed.bg-black, .relative.bg-black, .sticky.bg-black {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%) !important;
+}
+
+/* SOLUCIÓN FINAL: Desactivar cualquier transición problemática durante scroll */
+/* Cuando se está haciendo scroll, deshabilitar transiciones que puedan causar flashes */
+.no-transitions, .no-transitions * {
+  transition: none !important;
+  animation: none !important;
+}
+
+/* Aplicar a elementos específicos que puedan causar problemas */
+nav *, footer *, header * {
+  transition-property: opacity, transform !important;
+  transition-duration: 0.15s !important;
+}
+
+/* Prevenir repaints costosos en elementos de UI */
+.card-modern, .glass-effect, [class*="rounded"] {
+  contain: layout style;
+  will-change: auto;
+}
+
+/* Optimización específica para scroll en iOS y navegadores móviles */
+@supports (-webkit-overflow-scrolling: touch) {
+  body {
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+  }
+}
+
+/* Fix específico para prevenir flashes en Safari */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  nav, footer, header {
+    -webkit-transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
+  }
+}

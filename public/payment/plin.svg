@@ -1,0 +1,6 @@
+<svg width="40" height="24" viewBox="0 0 40 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="40" height="24" rx="4" fill="#00BFFF"/>
+<circle cx="12" cy="12" r="3" fill="white"/>
+<circle cx="28" cy="12" r="3" fill="white"/>
+<text x="20" y="15" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="5" font-weight="bold">PLIN</text>
+</svg>

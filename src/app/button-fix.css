@@ -1,0 +1,99 @@
+/* ESTILOS DE BOTONES - FORZADO PARA ALINEACIÓN PERFECTA */
+
+.btn-primary,
+.btn-secondary,
+.btn-outline {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  vertical-align: middle !important;
+  font-size: 16px !important;
+  line-height: 1 !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  text-decoration: none !important;
+  box-sizing: border-box !important;
+  white-space: nowrap !important;
+}
+
+/* Asegurar que los iconos SVG estén alineados */
+.btn-primary svg,
+.btn-secondary svg,
+.btn-outline svg {
+  display: inline-block !important;
+  vertical-align: middle !important;
+  flex-shrink: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Asegurar que el texto esté alineado */
+.btn-primary span,
+.btn-secondary span,
+.btn-outline span {
+  display: inline-block !important;
+  vertical-align: middle !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Estilos específicos de cada tipo de botón */
+.btn-primary {
+  background-color: #FF0042 !important;
+  color: #FFFFFF !important;
+  font-weight: bold !important;
+  border-radius: 8px !important;
+  padding: 12px 24px !important;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.1) !important;
+  transform: scale(1.02) !important;
+}
+
+.btn-primary:active {
+  transform: scale(0.98) !important;
+}
+
+.btn-secondary {
+  background-color: #1A1A1B !important;
+  border: 1px solid #333333 !important;
+  color: #FFFFFF !important;
+  font-weight: bold !important;
+  border-radius: 8px !important;
+  padding: 12px 24px !important;
+}
+
+.btn-secondary:hover {
+  background-color: #2A2A2B !important;
+  border-color: #555555 !important;
+}
+
+.btn-outline {
+  background-color: transparent !important;
+  border: 1px solid #FF0042 !important;
+  color: #FF0042 !important;
+  font-weight: bold !important;
+  border-radius: 8px !important;
+  padding: 12px 24px !important;
+}
+
+.btn-outline:hover {
+  background-color: #FF0042 !important;
+  color: #FFFFFF !important;
+}
+
+/* Corrección para casos específicos donde flex-1 puede interferir */
+.btn-primary.flex-1,
+.btn-secondary.flex-1,
+.btn-outline.flex-1 {
+  flex: 1 !important;
+  min-width: 0 !important;
+}
+
+/* Override para cualquier conflicto con clases de Tailwind */
+button[class*="btn-"] {
+  font-family: inherit !important;
+}

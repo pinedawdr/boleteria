@@ -1,0 +1,7 @@
+<svg width="40" height="24" viewBox="0 0 40 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="40" height="24" rx="4" fill="#722F87"/>
+<path d="M8 8h6v8h-6z" fill="white"/>
+<path d="M16 8h6v8h-6z" fill="white"/>
+<path d="M26 8h6v8h-6z" fill="white"/>
+<text x="20" y="15" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="5" font-weight="bold">YAPE</text>
+</svg>

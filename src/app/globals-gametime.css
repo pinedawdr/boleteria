@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border-color;
+  }
+  
+  body {
+    @apply bg-primary text-text-primary font-sans antialiased;
+    /* Gametime.co style: fondo sólido muy oscuro */
+    background-color: #111111;
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  /* Prevenir flash blanco durante carga */
+  html, body {
+    background-color: #111111 !important;
+  }
+
+  html {
+    background-color: #111111 !important;
+    scroll-behavior: smooth;
+  }
+
+  /* Asegurar transiciones suaves */
+  * {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+}
+
+@layer components {
+  /* Botones estilo Gametime.co */
+  .btn-gametime {
+    @apply px-6 py-3 rounded-lg font-bold transition-all duration-300 ease-out;
+  }
+
+  .btn-primary {
+    @apply bg-accent text-black font-bold rounded-lg px-6 py-3 transition-all duration-300 hover:brightness-110 hover:scale-[1.02] active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply bg-secondary border border-border-color text-text-primary rounded-lg px-6 py-3 transition-all duration-300 hover:bg-hover-bg hover:border-border-light;
+  }
+
+  .btn-outline {
+    @apply bg-transparent border border-accent text-accent rounded-lg px-6 py-3 transition-all duration-300 hover:bg-accent hover:text-black;
+  }
+
+  /* Cards estilo Gametime.co */
+  .card-gametime {
+    @apply bg-card-bg border border-border-color rounded-xl p-6 transition-all duration-300 hover:bg-hover-bg hover:border-border-light;
+  }
+
+  .card-hover {
+    @apply transform transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover;
+  }
+
+  .card-glow {
+    @apply transition-all duration-300 hover:shadow-glow;
+  }
+
+  /* Inputs estilo Gametime.co */
+  .input-gametime {
+    @apply bg-input-bg border border-border-color rounded-lg px-4 py-3 text-text-primary placeholder-text-secondary transition-all duration-300 focus:ring-2 focus:ring-accent focus:border-accent outline-none;
+  }
+
+  /* Hover effects modernos */
+  .hover-lift {
+    @apply transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-card-hover;
+  }
+
+  .hover-scale {
+    @apply transition-transform duration-300 ease-out hover:scale-[1.02];
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300 ease-out hover:shadow-glow;
+  }
+
+  .hover-accent {
+    @apply transition-colors duration-300 hover:text-accent;
+  }
+
+  /* Glass effect minimalista */
+  .glass-subtle {
+    @apply bg-card-bg/80 backdrop-blur-sm border border-border-color;
+  }
+
+  /* Navegación */
+  .nav-gametime {
+    @apply bg-primary/95 backdrop-blur-sm border-b border-border-color;
+  }
+
+  /* Skeleton loading */
+  .skeleton {
+    @apply bg-secondary animate-pulse rounded;
+  }
+
+  /* Responsive utilities */
+  .responsive-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+  }
+
+  .responsive-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  .responsive-text {
+    @apply text-sm sm:text-base lg:text-lg;
+  }
+}
+
+@layer utilities {
+  /* Text effects */
+  .text-accent-glow {
+    @apply text-accent;
+    text-shadow: 0 0 10px rgba(21, 245, 186, 0.3);
+  }
+
+  .text-shadow-sm {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Focus ring personalizado */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary;
+  }
+
+  /* Gradient text para acentos */
+  .gradient-text {
+    @apply bg-gradient-to-r from-accent to-accent-light bg-clip-text text-transparent;
+  }
+
+  /* Scroll optimizations */
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+  
+  .scroll-optimized {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    overscroll-behavior: contain;
+  }
+
+  /* Performance optimizations */
+  .cards-grid {
+    contain: layout style;
+    will-change: contents;
+  }
+  
+  .cards-grid > * {
+    contain: layout style paint;
+    will-change: transform;
+  }
+
+  /* Hardware acceleration helpers */
+  .gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Lazy loading optimization */
+  .lazy-load-container {
+    contain: strict;
+    content-visibility: auto;
+    contain-intrinsic-size: 300px;
+  }
+}

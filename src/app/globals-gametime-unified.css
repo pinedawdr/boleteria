@@ -1,0 +1,653 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================
+   GAMETIME.CO DESIGN SYSTEM v2.0
+   Background #0E0E0F global y consistente
+   ========================= */
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  html {
+    background: #0E0E0F !important;
+    color: #FFFFFF !important;
+    scroll-behavior: smooth;
+    min-height: 100vh;
+  }
+  
+  body {
+    background: #0E0E0F !important;
+    color: #FFFFFF !important;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  #__next {
+    background: #0E0E0F !important;
+    min-height: 100vh;
+  }
+
+  /* FORZAR BACKGROUND GLOBAL EN TODOS LOS ELEMENTOS PRINCIPALES */
+  main, section, div[class*="bg-"], article, aside {
+    background-color: #0E0E0F;
+  }
+
+  /* OVERRIDE CUALQUIER BACKGROUND INCONSISTENTE */
+  .bg-gray-900, .bg-gray-800, .bg-slate-900, .bg-zinc-900, 
+  .bg-neutral-900, .bg-stone-900, [class*="bg-gray"], 
+  [class*="bg-slate"], [class*="bg-zinc"] {
+    background-color: #0E0E0F !important;
+  }
+}
+
+@layer components {
+  /* ==================
+     SISTEMA DE BOTONES 
+     ================== */
+  .btn-primary {
+    background-color: #FF0042 !important;
+    color: #FFFFFF !important;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .btn-primary:hover {
+    background-color: #FF0042 !important;
+  }
+
+  .btn-secondary {
+    background-color: transparent !important;
+    color: #FF0042 !important;
+    border: 1px solid #FF0042 !important;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .btn-secondary:hover {
+    background-color: #FF0042 !important;
+    color: #FFFFFF !important;
+  }
+
+  .btn-outline {
+    background-color: transparent !important;
+    color: #FFFFFF !important;
+    border: 1px solid #333333 !important;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .btn-outline:hover {
+    background-color: #333333 !important;
+    border-color: #FF0042 !important;
+  }
+  
+  /* TARJETAS GAMETIME */
+  .card-default {
+    background-color: #1C1C1E !important;
+    border: 1px solid #333333 !important;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    transition: border-color 0.3s ease;
+  }
+
+  .card-default:hover {
+    background-color: #2C2C2E !important;
+    border-color: #FF0042 !important;
+  }
+
+  .card-elevated {
+    background-color: #1C1C1E !important;
+    border: 1px solid #333333 !important;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  .card-elevated:hover {
+    border-color: #FF0042 !important;
+  }
+  
+  /* INPUTS GAMETIME */
+  .input-default {
+    background-color: #2C2C2E !important;
+    border: 1px solid #333333 !important;
+    color: #FFFFFF !important;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    width: 100%;
+  }
+
+  .input-default::placeholder {
+    color: #8E8E93 !important;
+  }
+
+  .input-default:focus {
+    background-color: #3A3A3C !important;
+    border-color: #FF0042 !important;
+    outline: none;
+  }
+
+  /* ==================
+     INPUTS MODERNOS Y FORMULARIOS
+     ================== */
+  
+  .input-modern {
+    background-color: #2C2C2E !important;
+    border: 1px solid #333333 !important;
+    color: #FFFFFF !important;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    width: 100%;
+  }
+
+  .input-modern::placeholder {
+    color: #8E8E93 !important;
+  }
+
+  .input-modern:focus {
+    background-color: #3A3A3C !important;
+    border-color: #FF0042 !important;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(21, 245, 186, 0.1);
+  }
+
+  /* Tarjeta moderna para formularios */
+  .card-modern {
+    background-color: #1C1C1E !important;
+    border: 1px solid #333333 !important;
+    border-radius: 0.75rem;
+    padding: 2rem;
+    transition: all 0.3s ease;
+  }
+
+  .card-modern:hover {
+    background-color: #2C2C2E !important;
+    border-color: #FF0042 !important;
+  }
+
+  /* Texto con gradiente para títulos especiales */
+  .gradient-text {
+    background: linear-gradient(135deg, #FF0042, #E6003A);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ==================
+     FIN INPUTS MODERNOS
+     ================== */
+
+  /* NAVEGACIÓN GAMETIME */
+  .nav-gametime {
+    background-color: #000000 !important;
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #333333 !important;
+  }
+
+  /* FOOTER GAMETIME */
+  .footer-gametime {
+    background-color: #000000 !important;
+    border-top: 1px solid #333333 !important;
+  }
+
+  /* TEXTO ACCENT */
+  .text-accent {
+    color: #FF0042 !important;
+  }
+
+  .text-accent:hover {
+    color: #FF0042 !important;
+  }
+}
+
+@layer utilities {
+  /* FONDOS FORZADOS - GAMETIME */
+  .bg-body {
+    background: #0E0E0F !important;
+  }
+  
+  .bg-header {
+    background: #000000 !important;
+  }
+  
+  .bg-footer {
+    background: #000000 !important;
+  }
+
+  .bg-card {
+    background: #1C1C1E !important;
+  }
+
+  .bg-surface {
+    background: #2C2C2E !important;
+  }
+  
+  /* OVERRIDE TODOS LOS COLORES ANTIGUOS */
+  .bg-body-bg,
+  .bg-header-bg,
+  .bg-footer-bg,
+  .bg-gradient-dark,
+  .bg-primary,
+  .bg-secondary,
+  [class*="bg-blue"],
+  [class*="bg-purple"],
+  [class*="bg-violet"],
+  [class*="bg-magenta"],
+  [class*="bg-gradient"] {
+    background: #0E0E0F !important;
+    background-image: none !important;
+  }
+
+  /* COLORES DE TEXTO UNIFICADOS */
+  .text-primary {
+    color: #FFFFFF !important;
+  }
+
+  .text-secondary {
+    color: #8E8E93 !important;
+  }
+
+  .text-muted {
+    color: #48484A !important;
+  }
+
+  /* BORDES UNIFICADOS */
+  .border-default {
+    border-color: #333333 !important;
+  }
+
+  .border-accent {
+    border-color: #FF0042 !important;
+  }
+
+  /* ==================
+     VARIABLES ADICIONALES PARA SISTEMA UNIFICADO
+     ================== */
+  
+  /* Colores de borde */
+  .border-border {
+    border-color: #333333 !important;
+  }
+
+  /* Colores de hover para cards */
+  .bg-card-hover {
+    background-color: #2C2C2E !important;
+  }
+
+  .hover-bg-card-hover:hover {
+    background-color: #2C2C2E !important;
+  }
+
+  /* Variables de color para consistencia */
+  .bg-warning {
+    background-color: #FF9500 !important;
+  }
+
+  .text-warning {
+    color: #FF9500 !important;
+  }
+
+  .bg-info {
+    background-color: #007AFF !important;
+  }
+
+  .text-info {
+    color: #007AFF !important;
+  }
+
+  .bg-success {
+    background-color: #34C759 !important;
+  }
+
+  .text-success {
+    color: #34C759 !important;
+  }
+
+  .bg-error {
+    background-color: #FF0042 !important;
+  }
+
+  .text-error {
+    color: #FF0042 !important;
+  }
+
+  /* ==================
+     FIN VARIABLES ADICIONALES
+     ================== */
+}
+
+/* ==================
+     SISTEMA RESPONSIVO MEJORADO
+     ================== */
+  
+  /* CARDS DE EVENTOS/TRANSPORTE - INFORMACIÓN ESENCIAL ÚNICAMENTE */
+  .card-event, .card-transport {
+    background-color: #1C1C1E !important;
+    border: 1px solid #333333 !important;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-event:hover, .card-transport:hover {
+    border-color: #FF0042 !important;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(21, 245, 186, 0.15);
+  }
+
+  .card-event-image, .card-transport-image {
+    background-color: #2C2C2E !important;
+    border-radius: 0.5rem;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.75rem;
+    flex-shrink: 0;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .card-event-image img, .card-transport-image img {
+    transition: transform 0.3s ease;
+  }
+
+  .card-event:hover .card-event-image img,
+  .card-transport:hover .card-transport-image img {
+    transform: scale(1.05);
+  }
+
+  .card-event-title, .card-transport-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #FFFFFF;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 2.6em;
+  }
+
+  .card-event-info, .card-transport-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #8E8E93;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-event-info:last-of-type {
+    margin-bottom: 1rem;
+  }
+
+  .card-event-price, .card-transport-price {
+    color: #FF0042;
+    font-weight: 700;
+    font-size: 1.125rem;
+    margin-top: auto;
+  }
+
+  /* INPUTS MEJORADOS */
+  .input-search {
+    background-color: #2C2C2E !important;
+    border: 1px solid #333333 !important;
+    color: #FFFFFF !important;
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+    width: 100%;
+    font-size: 0.875rem;
+  }
+
+  .input-search:focus {
+    background-color: #3A3A3C !important;
+    border-color: #FF0042 !important;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(21, 245, 186, 0.1);
+  }
+
+  /* TEXTAREA MEJORADO */
+  .textarea-default {
+    background-color: #2C2C2E !important;
+    border: 1px solid #333333 !important;
+    color: #FFFFFF !important;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    width: 100%;
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .textarea-default::placeholder {
+    color: #8E8E93 !important;
+  }
+
+  .textarea-default:focus {
+    background-color: #3A3A3C !important;
+    border-color: #FF0042 !important;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(21, 245, 186, 0.1);
+  }
+
+  /* RESPONSIVE ICONS - SISTEMA ESCALABLE */
+  .icon-xs { width: 0.75rem; height: 0.75rem; }
+  .icon-sm { width: 1rem; height: 1rem; }
+  .icon-md { width: 1.25rem; height: 1.25rem; }
+  .icon-lg { width: 1.5rem; height: 1.5rem; }
+  .icon-xl { width: 2rem; height: 2rem; }
+
+  /* RESPONSIVE BREAKPOINTS MEJORADOS */
+  @media (max-width: 640px) {
+    .btn-primary, .btn-secondary, .btn-outline {
+      padding: 0.625rem 1.25rem;
+      font-size: 0.875rem;
+    }
+    
+    .card-event, .card-transport {
+      padding: 0.75rem;
+    }
+    
+    .card-event-image, .card-transport-image {
+      height: 100px;
+    }
+    
+    .card-event-title, .card-transport-title {
+      font-size: 0.875rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .card-event-image, .card-transport-image {
+      height: 140px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .card-event-image, .card-transport-image {
+      height: 160px;
+    }
+  }
+
+  /* SISTEMA DE GRID CONSISTENTE */
+  .grid-events {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 1024px) {
+    .grid-events {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .grid-events {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .grid-transport {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 640px) {
+    .grid-events, .grid-transport {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+
+  /* ==================
+     HOMEPAGE ESPECÍFICO
+     ================== */
+  
+  /* Grid para categorías de homepage */
+  .grid-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .grid-categories {
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .grid-categories {
+      grid-template-columns: repeat(8, 1fr);
+    }
+  }
+
+  /* Tarjeta de categoría simplificada */
+  .card-category {
+    background-color: #1C1C1E !important;
+    border: 1px solid #333333 !important;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card-category:hover {
+    background-color: #2C2C2E !important;
+    border-color: #FF0042 !important;
+  }
+
+  /* Tarjeta de estadística */
+  .card-stat {
+    background-color: #1C1C1E !important;
+    border: 1px solid #333333 !important;
+    border-radius: 0.75rem;
+    padding: 2rem;
+    transition: all 0.3s ease;
+  }
+
+  .card-stat:hover {
+    background-color: #2C2C2E !important;
+    border-color: #FF0042 !important;
+  }
+
+  /* Tarjeta de información */
+  .card-info {
+    background-color: #1C1C1E !important;
+    border: 1px solid #333333 !important;
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+  }
+
+  .card-info:hover {
+    background-color: #2C2C2E !important;
+    border-color: #FF0042 !important;
+  }
+
+  /* ==================
+     FIN HOMEPAGE ESPECÍFICO
+     ================== */
+
+  /* LOADING STATES Y SKELETON */
+  .skeleton {
+    background: linear-gradient(90deg, #2C2C2E 25%, #3A3A3C 50%, #2C2C2E 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+  }
+
+  @keyframes skeleton-loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  /* OVERRIDE ABSOLUTO PARA BACKGROUNDS INCONSISTENTES */
+  [class*="bg-gray"], [class*="bg-slate"], [class*="bg-zinc"], 
+  [class*="bg-neutral"], [class*="bg-stone"], .bg-secondary {
+    background-color: #1C1C1E !important;
+  }
+
+  .bg-surface {
+    background-color: #2C2C2E !important;
+  }
+
+  /* HOVER STATES OPTIMIZADOS - SIN ESCALADO */
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    transition: transform 0.3s ease;
+  }
+
+  .hover-accent:hover {
+    color: #FF0042 !important;
+    transition: color 0.3s ease;
+  }
+
+  .hover-border:hover {
+    border-color: #FF0042 !important;
+    transition: border-color 0.3s ease;
+  }
